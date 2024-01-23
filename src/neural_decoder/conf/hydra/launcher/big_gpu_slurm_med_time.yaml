@@ -1,0 +1,14 @@
+defaults:
+  - submitit_slurm
+
+timeout_min: 600
+cpus_per_task: 3
+mem_gb: 96
+partition: owners,henderj
+gpus_per_node: 1
+setup:
+  - ml load python/3.9.0 cuda/11.7.1 cudnn/8.6.0.163
+additional_parameters:
+  constraint: '[GPU_MEM:40GB]'
+  mail-type: ALL
+array_parallelism: 50

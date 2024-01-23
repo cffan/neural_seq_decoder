@@ -1,0 +1,14 @@
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+src/neural_decoder/augmentations.py
+src/neural_decoder/dataset.py
+src/neural_decoder/model.py
+src/neural_decoder/neural_decoder_trainer.py
+src/neural_decoder.egg-info/PKG-INFO
+src/neural_decoder.egg-info/SOURCES.txt
+src/neural_decoder.egg-info/dependency_links.txt
+src/neural_decoder.egg-info/not-zip-safe
+src/neural_decoder.egg-info/requires.txt
+src/neural_decoder.egg-info/top_level.txt
