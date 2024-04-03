@@ -44,7 +44,7 @@ rnn_outputs = {
 partition = "competition"
 for i, testDayIdx in enumerate([4, 5, 6, 7, 8, 9, 10, 12, 13, 14, 15, 16, 18, 19, 20]):
     # for i, testDayIdx in enumerate(range(len(loadedData[partition]))):
-    test_ds = SpeechDataset([loadedData[partition][i]])
+    test_ds = SpeechDataset([loadedData[partition][testDayIdx]])
     test_loader = torch.utils.data.DataLoader(
         test_ds, batch_size=1, shuffle=False, num_workers=0
     )
