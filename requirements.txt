@@ -1,0 +1,5 @@
+torch
+edit_distance
+numpy
+pytest
+hydra-core

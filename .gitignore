@@ -26,6 +26,12 @@ share/python-wheels/
 *.egg
 MANIFEST
 
+# Data Directory/Files
+data/
+
+# Model Weights Files
+modelWeights
+
 # PyInstaller
 #  Usually these files are written by a python script from a template
 #  before PyInstaller builds the exe, so as to inject date/other infos into it.
@@ -127,6 +133,7 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+uv.*
 
 # Spyder project settings
 .spyderproject

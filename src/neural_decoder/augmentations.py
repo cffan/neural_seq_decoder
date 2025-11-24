@@ -24,6 +24,30 @@ class MeanDriftNoise(nn.Module):
         noise = torch.randn(1, C) * self.std
         return x + noise
 
+class SpeckleNoise(nn.Module):
+    """
+    Speckled masking / coordinated dropout over neural inputs.
+
+    This applies elementwise dropout on an input tensor of shape [B, T, C]
+    (batch, time, channels) with probability p. During training, each element
+    is zeroed with probability p and the remaining elements are scaled by
+    1 / (1 - p). At eval time, the input is returned unchanged.
+    """
+    def __init__(self, p: float = 0.3):
+        super().__init__()
+        self.p = p
+
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
+        # x can be [B, T, C] or any shape; we treat all elements independently.
+        if (not self.training) or self.p <= 0.0:
+            return x
+        # mask: 1 with prob (1-p), 0 with prob p
+        mask = (torch.rand_like(x) > self.p).to(x.dtype)
+        # Inverted dropout scaling so expectation is preserved
+        x = x * mask / (1.0 - self.p)
+        return x
+
+
 class GaussianSmoothing(nn.Module):
     """
     Apply gaussian smoothing on a

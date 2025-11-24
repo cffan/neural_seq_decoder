@@ -16,6 +16,7 @@ datasetPath: /oak/stanford/groups/henderj/stfan/data/ptDecoder_ctc
 
 seed: 0
 batchSize: 64
+rnn_type: "lstm"
 lrStart: 0.02
 lrEnd: 0.02
 l2_decay: 1e-5
@@ -25,6 +26,8 @@ whiteNoiseSD: 0.8
 constantOffsetSD: 0.2
 gaussianSmoothWidth: 2.0
 
+max_grad_norm: 5.0      
+speckle_prob: 0.3      
 nUnits: 1024
 nLayers: 5
 nInputFeatures: 256
